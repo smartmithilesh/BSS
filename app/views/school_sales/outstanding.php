@@ -7,8 +7,7 @@
 <div class="clearfix"></div>
 
 <div class="row"><div class="col-md-12"><div class="x_panel"><div class="x_content">
-<form method="GET" action="<?= BASE_URL ?>" class="form-inline" style="margin-bottom:10px">
-  <input type="hidden" name="controller" value="schoolsale"><input type="hidden" name="action" value="outstanding">
+<form method="GET" action="<?= url('schoolsale','outstanding') ?>" class="form-inline" style="margin-bottom:10px">
   <div class="form-group" style="margin-right:6px">
     <select name="season_id" class="form-control"><option value="">All Seasons</option>
       <?php foreach($seasons as $s): ?><option value="<?= $s['id'] ?>" <?= $filters['season_id']==$s['id']?'selected':'' ?>><?= htmlspecialchars($s['name']) ?></option><?php endforeach; ?>

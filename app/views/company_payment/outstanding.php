@@ -1,8 +1,7 @@
 <div class="page-title">
   <div class="title_left"><h3><i class="fa fa-exclamation-circle"></i> Company Outstanding</h3></div>
   <div class="title_right">
-    <form method="GET" class="pull-right form-inline">
-      <input type="hidden" name="controller" value="companyPayment"><input type="hidden" name="action" value="outstanding">
+    <form method="GET" action="<?= url('companyPayment','outstanding') ?>" class="pull-right form-inline">
       <select name="season_id" class="form-control form-control-sm" onchange="this.form.submit()">
         <?php foreach($seasons as $s): ?><option value="<?= $s['id'] ?>" <?= $seasonId==$s['id']?'selected':'' ?>><?= htmlspecialchars($s['name']) ?></option><?php endforeach; ?>
       </select>

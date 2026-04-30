@@ -1,8 +1,7 @@
 <div class="page-title">
   <div class="title_left"><h3><i class="fa fa-cubes"></i> Stock Report</h3></div>
   <div class="title_right">
-    <form method="GET" class="pull-right form-inline">
-      <input type="hidden" name="controller" value="stock"><input type="hidden" name="action" value="index">
+    <form method="GET" action="<?= url('stock','index') ?>" class="pull-right form-inline">
       <select name="season_id" class="form-control form-control-sm" onchange="this.form.submit()" style="margin-right:5px">
         <?php foreach($seasons as $s): ?><option value="<?= $s['id'] ?>" <?= $seasonId==$s['id']?'selected':'' ?>><?= htmlspecialchars($s['name']) ?></option><?php endforeach; ?>
       </select>

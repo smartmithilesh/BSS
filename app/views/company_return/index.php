@@ -7,8 +7,7 @@
 <div class="clearfix"></div>
 
 <div class="row"><div class="col-md-12"><div class="x_panel"><div class="x_content">
-<form method="GET" action="<?= BASE_URL ?>" class="form-inline" style="margin-bottom:10px">
-  <input type="hidden" name="controller" value="companyReturn"><input type="hidden" name="action" value="index">
+<form method="GET" action="<?= url('companyReturn','index') ?>" class="form-inline" style="margin-bottom:10px">
   <select name="season_id" class="form-control" style="margin-right:5px"><option value="">All Seasons</option>
     <?php foreach($seasons as $s): ?><option value="<?= $s['id'] ?>" <?= $seasonId==$s['id']?'selected':'' ?>><?= htmlspecialchars($s['name']) ?></option><?php endforeach; ?>
   </select>

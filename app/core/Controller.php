@@ -9,7 +9,11 @@ class Controller {
     }
 
     protected function redirect($path) {
-        header('Location: ' . BASE_URL . $path);
+        $location = pretty_url_from_legacy($path);
+        if (!parse_url($location, PHP_URL_SCHEME)) {
+            $location = rtrim(BASE_URL, '/') . '/' . ltrim($location, '/');
+        }
+        header('Location: ' . $location);
         exit;
     }
 

@@ -11,8 +11,16 @@ require_once __DIR__ . '/../app/core/Autoload.php';
 if(class_exists('AppSettings')) date_default_timezone_set(AppSettings::get('timezone',APP_TIMEZONE));
 
 // Route
-$controller = $_GET['controller'] ?? 'dashboard';
-$action     = $_GET['action']     ?? 'index';
+$path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
+$basePath = rtrim(parse_url(BASE_URL, PHP_URL_PATH) ?: '/', '/');
+if ($basePath && $basePath !== '/' && strpos($path, $basePath) === 0) {
+    $path = substr($path, strlen($basePath));
+}
+$path = trim($path, '/');
+$segments = $path === '' ? [] : explode('/', $path);
+
+$controller = $_GET['controller'] ?? ($segments[0] ?? 'dashboard');
+$action     = $_GET['action']     ?? ($segments[1] ?? 'index');
 
 // Sanitise
 $controller = preg_replace('/[^a-z]/i', '', $controller);
@@ -60,4 +68,5 @@ if (!method_exists($obj, $action)) {
     die('Action not found.');
 }
 
+ob_start('rewrite_legacy_urls');
 $obj->$action();

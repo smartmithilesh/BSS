@@ -9,8 +9,7 @@
 <div class="row"><div class="col-md-12"><div class="x_panel">
 <div class="x_title"><h2>Filter Books</h2><div class="clearfix"></div></div>
 <div class="x_content">
-<form method="GET" action="<?= BASE_URL ?>" class="form-inline">
-  <input type="hidden" name="controller" value="book"><input type="hidden" name="action" value="index">
+<form method="GET" action="<?= url('book','index') ?>" class="form-inline">
   <div class="form-group" style="margin-right:8px"><input type="text" name="name" class="form-control" placeholder="Book name" value="<?= htmlspecialchars($filters['name']) ?>"></div>
   <div class="form-group" style="margin-right:8px">
     <select name="class_id" class="form-control">

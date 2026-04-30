@@ -23,6 +23,6 @@ class AuthController extends Controller {
     }
     public function logout() {
         session_destroy();
-        header('Location: '.BASE_URL.'?controller=auth&action=login'); exit;
+        $this->redirect('?controller=auth&action=login');
     }
 }
