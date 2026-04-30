@@ -9,7 +9,7 @@ class User extends Model {
         $st->execute([$id]); return $st->fetch();
     }
     public function getAll() {
-        return $this->db->query("SELECT u.id,u.name,u.email,u.department_id,u.role_id,COALESCE(r.slug,u.role) AS role,r.name AS role_name,u.created_at,d.name AS department_name FROM users u LEFT JOIN departments d ON d.id=u.department_id LEFT JOIN roles r ON r.id=u.role_id ORDER BY u.name")->fetchAll();
+        return $this->db->query("SELECT u.id,u.name,u.email,u.department_id,u.role_id,u.profile_image,COALESCE(r.slug,u.role) AS role,r.name AS role_name,u.created_at,d.name AS department_name FROM users u LEFT JOIN departments d ON d.id=u.department_id LEFT JOIN roles r ON r.id=u.role_id ORDER BY u.name")->fetchAll();
     }
     public function create($d) {
         [$roleId,$roleSlug]=$this->resolveRole($d);
@@ -23,8 +23,13 @@ class User extends Model {
         if(!empty($d['password'])) $this->updatePassword($id,$d['password']);
     }
     public function updateProfile($id,$d) {
-        $this->db->prepare("UPDATE users SET name=?,email=? WHERE id=?")
-            ->execute([$d['name'],$d['email'],$id]);
+        if(isset($d['profile_image'])) {
+            $this->db->prepare("UPDATE users SET name=?,email=?,profile_image=? WHERE id=?")
+                ->execute([$d['name'],$d['email'],$d['profile_image']?:null,$id]);
+        } else {
+            $this->db->prepare("UPDATE users SET name=?,email=? WHERE id=?")
+                ->execute([$d['name'],$d['email'],$id]);
+        }
         if(!empty($d['password'])) $this->updatePassword($id,$d['password']);
     }
     public function updatePassword($id,$password) {

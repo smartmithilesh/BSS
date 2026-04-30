@@ -27,6 +27,7 @@ CREATE TABLE users (
     department_id INT NULL,
     role_id      INT NULL,
     role         VARCHAR(100) DEFAULT 'staff',
+    profile_image VARCHAR(255) DEFAULT NULL,
     created_at   TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (department_id) REFERENCES departments(id) ON DELETE SET NULL
 );

@@ -762,6 +762,20 @@ select[size] {
   background: #1abb9c;
 }
 
+.profile.has-image:before {
+  display: none;
+}
+
+.profile-sidebar-img {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  background: #fff;
+}
+
 .profile_info {
   width: auto;
   min-width: 0;
@@ -948,6 +962,17 @@ select[size] {
   font-size: 13px;
 }
 
+.top_nav .navbar-right > li > a.user-profile img {
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  margin: 0;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 1px #d9e2ec;
+}
+
 .top_nav .navbar-right > li > a.user-profile .fa-angle-down {
   color: #7b8a9a;
   margin-left: 2px;
@@ -1120,4 +1145,32 @@ select[size] {
 .finance-mini-row:last-of-type {
   border-bottom: 0;
   margin-bottom: 12px;
+}
+
+/* ================================================
+   PROFILE PAGE
+================================================ */
+.profile-edit-preview {
+  display: flex;
+  justify-content: center;
+  margin: 4px 0 18px;
+}
+
+.profile-edit-preview img,
+.profile-edit-preview span {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  object-fit: cover;
+  background: #eef4f8;
+  border: 4px solid #fff;
+  box-shadow: 0 8px 24px rgba(31, 45, 61, 0.16);
+}
+
+.profile-edit-preview span {
+  color: #203246;
+  font-size: 34px;
 }

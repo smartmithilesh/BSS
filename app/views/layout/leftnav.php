@@ -12,7 +12,9 @@ $inArr=fn($arr)=>in_array($c,$arr);
   </a>
 </div>
 <div class="clearfix"></div>
-<div class="profile clearfix">
+<?php $leftProfileImage=!empty($_SESSION['user']['profile_image']) ? BASE_URL.ltrim($_SESSION['user']['profile_image'],'/') : ''; ?>
+<div class="profile clearfix <?= $leftProfileImage?'has-image':'' ?>">
+  <?php if($leftProfileImage): ?><img src="<?= $leftProfileImage ?>" class="profile-sidebar-img" alt="Profile"><?php endif; ?>
   <div class="profile_info">
     <span>Welcome,</span>
     <h2><?= htmlspecialchars($_SESSION['user']['name']??'User') ?></h2>

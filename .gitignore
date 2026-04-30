@@ -1,5 +1,7 @@
 .codex
 app/config/config.local.php
 app/config/installed.php
+public/assets/uploads/users/*
+!public/assets/uploads/users/.gitkeep
 *.log
 *.tmp
