@@ -1,0 +1,57 @@
+   .wp-editor-container {
+  max-width: 800px;
+  margin: 20px auto;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.editor-tabs {
+  display: flex;
+  justify-content: flex-end;
+  background: #f1f1f1;
+  border-bottom: 1px solid #ccc;
+  padding: 5px 10px;
+}
+
+.editor-tabs button {
+  padding: 6px 14px;
+  margin-left: 5px;
+  border: 1px solid #ccc;
+  border-bottom: none;
+  background: #f1f1f1;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px 4px 0 0;
+  transition: background 0.2s;
+}
+
+.editor-tabs button:hover {
+  background: #e9e9e9;
+}
+
+.editor-tabs button.active {
+  background: #fff;
+  font-weight: bold;
+  border-bottom: 1px solid #fff;
+}
+
+.wp-editor,
+.html-view,
+.tox-tinymce {
+  width: 100% !important;
+  border: none;
+  border-top: 1px solid #ccc;
+  border-radius: 0 0 4px 4px;
+}
+
+.html-view {
+  display: none;
+  height: 600px;
+  padding: 10px;
+  font-family: monospace;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 97% !important;
+}
