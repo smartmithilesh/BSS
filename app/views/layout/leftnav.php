@@ -2,6 +2,10 @@
 $c=$_GET['controller']??'dashboard';
 $a=$_GET['action']??'index';
 $inArr=fn($arr)=>in_array($c,$arr);
+$userRole=strtolower(trim($_SESSION['user']['role']??''));
+$userDepartment=strtolower(trim($_SESSION['user']['department_name']??''));
+$isSuperAdmin=$userRole==='superadmin' || $userDepartment==='super admin';
+$isItDepartment=$userRole==='it' || $userDepartment==='it';
 ?>
 <div class="col-md-3 left_col">
 <div class="left_col scroll-view">
@@ -31,7 +35,7 @@ $inArr=fn($arr)=>in_array($c,$arr);
     <a href="<?= BASE_URL ?>?controller=dashboard&action=index"><i class="fa fa-home"></i> Dashboard</a>
   </li>
 
-  <?php $mOpen=$inArr(['season','company','publication','class','school','department','role','user','siteSetting','book']); ?>
+  <?php $mOpen=$inArr(['season','company','publication','class','school','department','role','user','siteSetting','migration','book']); ?>
   <li class="<?= $mOpen?'active':'' ?>">
     <a href="javascript:void(0)"><i class="fa fa-cogs"></i> Masters <span class="fa fa-chevron-down"></span></a>
     <ul class="nav child_menu" style="<?= $mOpen?'display:block':'' ?>">
@@ -43,8 +47,10 @@ $inArr=fn($arr)=>in_array($c,$arr);
       <li class="<?= $c==='department'?'current-page':'' ?>"><a href="<?= BASE_URL ?>?controller=department&action=index">Departments</a></li>
       <li class="<?= $c==='role'?'current-page':'' ?>"><a href="<?= BASE_URL ?>?controller=role&action=index">Roles</a></li>
       <li class="<?= $c==='user'?'current-page':'' ?>"><a href="<?= BASE_URL ?>?controller=user&action=index">Users</a></li>
-      <?php if(($_SESSION['user']['role']??'')==='superadmin' || ($_SESSION['user']['department_name']??'')==='Super Admin'): ?>
+      <?php if($isSuperAdmin): ?>
       <li class="<?= $c==='siteSetting'?'current-page':'' ?>"><a href="<?= BASE_URL ?>?controller=siteSetting&action=index">Site Settings</a></li>
+      <?php endif; ?>
+      <?php if($isItDepartment): ?>
       <li class="<?= $c==='migration'?'current-page':'' ?>"><a href="<?= BASE_URL ?>?controller=migration&action=index">Database Updates</a></li>
       <?php endif; ?>
       <li class="<?= $c==='book'?'current-page':'' ?>"><a href="<?= BASE_URL ?>?controller=book&action=index">Books</a></li>

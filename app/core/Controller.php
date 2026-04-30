@@ -32,6 +32,17 @@ class Controller {
         }
     }
 
+    protected function itDepartmentCheck() {
+        $user=$_SESSION['user']??[];
+        $department=strtolower(trim($user['department_name']??''));
+        $role=strtolower(trim($user['role']??''));
+        $isIt=$department==='it' || $role==='it';
+        if(!$isIt) {
+            $this->flash('error','Only IT Department can access this page.');
+            $this->redirect('?controller=dashboard&action=index');
+        }
+    }
+
     protected function flash($type, $msg) {
         $_SESSION['flash'] = ['type' => $type, 'msg' => $msg];
     }
