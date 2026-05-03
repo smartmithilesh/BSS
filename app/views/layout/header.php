@@ -18,6 +18,10 @@
 table.dataTable thead th{background:#2c3e50;color:#fff}
 .btn-pdf{background:#c0392b;color:#fff;border:none}.btn-pdf:hover{background:#a93226;color:#fff}
 .site-logo-img{height:30px;max-width:38px;object-fit:contain;margin-right:6px;vertical-align:middle}
+.app-credit-footer{margin-top:24px;padding:12px 0 4px;color:#7f8c8d;font-size:12px;line-height:1.5;text-align:right;border-top:1px solid #e6ebf1}
+.app-credit-footer a{color:#526a7a;text-decoration:none}
+.app-credit-footer a:hover{color:#2c3e50;text-decoration:none}
+@media(max-width:767px){.app-credit-footer{text-align:center;font-size:11px}.app-credit-footer .credit-separator{display:none}.app-credit-footer .credit-item{display:block}}
 .app-popup-backdrop{position:fixed;inset:0;background:rgba(31,45,61,.48);z-index:10000;display:none;align-items:center;justify-content:center;padding:18px}
 .app-popup{width:100%;max-width:420px;background:#fff;border-radius:6px;box-shadow:0 18px 50px rgba(0,0,0,.28);overflow:hidden;transform:translateY(8px);opacity:0;transition:all .16s ease}
 .app-popup-backdrop.is-visible .app-popup{transform:translateY(0);opacity:1}

@@ -1,4 +1,11 @@
 
+<div class="app-credit-footer hidden-print">
+  <span class="credit-item">Developed and designed by Mithilesh Singh</span>
+  <span class="credit-separator"> | </span>
+  <span class="credit-item">Email: <a href="mailto:smartmithilesh26@gmail.com">smartmithilesh26@gmail.com</a></span>
+  <span class="credit-separator"> | </span>
+  <span class="credit-item">Phone: <a href="tel:+919935536040">+91 9935536040</a></span>
+</div>
 </div><!-- .right_col content -->
 </div><!-- .right_col -->
 </div><!-- .main_container -->
